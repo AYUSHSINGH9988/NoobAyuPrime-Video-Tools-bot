@@ -1,0 +1,10 @@
+pyrogram
+tgcrypto
+dnspython
+pymongo
+yt-dlp
+hachoir
+requests
+pillow
+motor
+aiofiles
