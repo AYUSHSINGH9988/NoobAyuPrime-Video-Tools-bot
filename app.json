@@ -1,0 +1,33 @@
+{
+  "name": "NoobAyu Video Tools Bot",
+  "description": "A Telegram bot for video tools.",
+  "logo": "https://telegra.ph/file/p/7.jpg",
+  "keywords": ["telegram", "bot", "video", "python"],
+  "repository": "https://github.com/AYUSHSINGH9988/NoobAyuPrime-Video-Tools-bot",
+  "env": {
+    "API_ID": {
+      "description": "Get this value from https://my.telegram.org",
+      "required": true
+    },
+    "API_HASH": {
+      "description": "Get this value from https://my.telegram.org",
+      "required": true
+    },
+    "BOT_TOKEN": {
+      "description": "Get this from @BotFather on Telegram",
+      "required": true
+    },
+    "AUTH_USERS": {
+      "description": "List of user IDs allowed to use the bot (optional)",
+      "required": false
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    },
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+    }
+  ]
+}
