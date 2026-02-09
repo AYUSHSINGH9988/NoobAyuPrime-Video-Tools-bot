@@ -1,7 +1,0 @@
-pyrogram
-tgcrypto
-aiohttp
-motor
-dnspython
-yt-dlp
-aria2p
