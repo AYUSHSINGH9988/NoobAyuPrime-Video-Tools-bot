@@ -234,17 +234,30 @@ async def merge_cmds(c, m):
         del MERGE_DICT[m.from_user.id]
     except Exception as e: await msg.edit_text(f"Error: {e}")
 
-async def web_server():
-    async def handle(request): return web.Response(text="Bot Running")
-    app = web.Application()
-    app.router.add_get("/", handle)
-    runner = web.AppRunner(app)
+# ==========================================
+#           SERVER & STARTUP (FIXED)
+# ==========================================
+async def main():
+    # Start Bot
+    print("🤖 Starting Bot Client...")
+    await app.start()
+    print("✅ Bot Started!")
+
+    # Start Web Server
+    print("🌍 Starting Web Server...")
+    runner = web.AppRunner(web.Application())
     await runner.setup()
+    
+    # FIXED SYNTAX HERE: Complete line with IP and PORT
     site = web.TCPSite(runner, "0.0.0.0", PORT)
     await site.start()
+    print(f"✅ Web Server running on Port {PORT}")
+
+    # Keep Bot Running
+    await idle()
+    await app.stop()
 
 if __name__ == "__main__":
     loop = asyncio.get_event_loop()
-    loop.run_until_complete(app.start())
-    loop.run_until_complete(web_server())
-    idle()
+    loop.run_until_complete(main())
+                                          
